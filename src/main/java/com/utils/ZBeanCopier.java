@@ -14,7 +14,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 /**
- * Description: MBeanCopier
+ * Description: ZBeanCopier
  * Author: zhumengzhu
  * Create: 2015-12-03 11:07
  */
