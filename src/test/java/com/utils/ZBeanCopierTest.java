@@ -1,9 +1,9 @@
 package com.utils;
 
 import net.sf.cglib.core.DebuggingClassWriter;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.util.Assert;
 
 /**
  * Description: ZBeanCopierTest
@@ -26,8 +26,8 @@ public class ZBeanCopierTest {
         MA to = new MA();
         copier.copy(from, to, null);
 
-        Assert.isTrue(to.getIntP() == 0);
-        Assert.isTrue(to.getPrivateName() == null);
+        Assert.assertEquals("intP", 0, to.getIntP());
+        Assert.assertNull("privateName", to.getPrivateName());
     }
 
 
@@ -39,7 +39,10 @@ public class ZBeanCopierTest {
         FromBean to = new FromBean();
 
         copier.copy(from, to, null);
-        Assert.isTrue(from.getIntValue() == to.getIntValue());
+
+        Assert.assertEquals("int", from.getIntValue(), to.getIntValue());
+
+        System.out.println("=============simple==================");
         System.out.println(to);
     }
 
@@ -52,6 +55,7 @@ public class ZBeanCopierTest {
 
         copier.copy(from, to, null);
 
+        System.out.println("=============oneWay==================");
         System.out.println(to);
     }
 
@@ -64,6 +68,7 @@ public class ZBeanCopierTest {
 
         copier.copy(from, to, null);
 
+        System.out.println("=============toBuilderBean==================");
         System.out.println(to);
     }
 
@@ -76,6 +81,7 @@ public class ZBeanCopierTest {
 
         copier.copy(from, to, null);
 
+        System.out.println("=============primitiveToRef==================");
         System.out.println(to);
     }
 
@@ -88,6 +94,7 @@ public class ZBeanCopierTest {
 
         copier.copy(from, to, null);
 
+        System.out.println("=============refToPrimitive==================");
         System.out.println(to);
     }
 
@@ -104,12 +111,13 @@ public class ZBeanCopierTest {
 
         copier.copy(from, to, null);
 
-        Assert.isTrue(from.getLongValue().equals(to.getLongValue()));
-        Assert.isTrue(from.getBoolValue().equals(to.isBoolValue()));
+        Assert.assertEquals("Long", from.getLongValue(), (Long) to.getLongValue());
+        Assert.assertEquals("Boolean", from.getBoolValue(), to.isBoolValue());
 
         // from 值为 null 时, 不拷贝, 此处为默认值 -1
-        Assert.isTrue(to.getIntValue() == -1);
+        Assert.assertEquals("int(not copy)", -1, to.getIntValue());
 
+        System.out.println("=============partialCopy==================");
         System.out.println(to);
     }
 

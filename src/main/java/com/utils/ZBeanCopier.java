@@ -150,8 +150,7 @@ abstract public class ZBeanCopier {
                 e.load_arg(0);
                 e.checkcast(sourceType);
             }
-            for (int i = 0; i < setters.length; i++) {
-                PropertyDescriptor setter = setters[i];
+            for (PropertyDescriptor setter : setters) {
                 PropertyDescriptor getter = (PropertyDescriptor) names.get(setter.getName());
                 if (getter != null) {
                     Method readMethod = getter.getReadMethod();
@@ -180,6 +179,7 @@ abstract public class ZBeanCopier {
                         e.dup2();
                         e.invoke(read);
 
+                        Type returnType = write.getSignature().getReturnType();
                         if (TypeUtils.isPrimitive(getterType)) {    // getter 为基本类型
                             if (TypeUtils.isPrimitive(setterType)) {
                                 e.invoke(write);
@@ -188,53 +188,23 @@ abstract public class ZBeanCopier {
                                 e.invoke(write);
                             }
 
-                            // setter 返回值不为空时, 将该值从栈上丢弃
-                            if (write.getSignature().getReturnType() != Type.VOID_TYPE) {
-                                e.pop();
-                            }
+                            // 如果 setter 有返回值, 将该返回值从栈上丢弃
+                            dropIfNotNull(e, returnType);
                         } else {    // getter 为引用类型
                             Label nonNull = e.make_label();
                             Label end = e.make_label();
                             e.dup();
                             e.ifnonnull(nonNull);
-                            e.pop();
-                            e.pop();
+                            e.pop2();
                             e.goTo(end);
                             e.mark(nonNull);
                             e.unbox(setterType);
                             e.invoke(write);
 
-                            // setter 返回值不为空时, 将该值从栈上丢弃
-                            if (write.getSignature().getReturnType() != Type.VOID_TYPE) {
-                                e.pop();
-                            }
+                            // 如果 setter 有返回值, 将该值从栈上丢弃
+                            dropIfNotNull(e, returnType);
+
                             e.mark(end);
-
-                            /*if (TypeUtils.isPrimitive(setterType)) {
-                                e.unbox_or_zero(setterType);
-                                e.invoke(write);
-
-                                // setter 返回值不为空时, 将该值从栈上丢弃
-                                if (write.getSignature().getReturnType() != Type.VOID_TYPE) {
-                                    e.pop();
-                                }
-                            } else {
-                                Label nonNull = e.make_label();
-                                Label end = e.make_label();
-                                e.dup();
-                                e.ifnonnull(nonNull);
-                                e.pop();
-                                e.pop();
-                                e.goTo(end);
-                                e.mark(nonNull);
-                                e.invoke(write);
-
-                                // setter 返回值不为空时, 将该值从栈上丢弃
-                                if (write.getSignature().getReturnType() != Type.VOID_TYPE) {
-                                    e.pop();
-                                }
-                                e.mark(end);
-                            }*/
                         }
                     }
                 }
@@ -242,6 +212,23 @@ abstract public class ZBeanCopier {
             e.return_value();
             e.end_method();
             ce.end_class();
+        }
+
+        /**
+         * 帮助函数, 根据返回值大小丢弃栈顶元素个数;
+         * <p/>
+         * 其中, 返回值大小为1, 丢弃一个值; 为2, 丢弃栈顶的两个值; 其它情况, 不需要处理.
+         *
+         * @param emitter    代码生成器
+         * @param returnType 返回类型
+         */
+        private void dropIfNotNull(CodeEmitter emitter, Type returnType) {
+            int size = returnType.getSize();
+            if (size == 1) {
+                emitter.pop();
+            } else if (size == 2) {
+                emitter.pop2();
+            }
         }
 
         private static boolean compatible(PropertyDescriptor getter, PropertyDescriptor setter) {

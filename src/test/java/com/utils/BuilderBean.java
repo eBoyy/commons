@@ -105,63 +105,63 @@ public class BuilderBean {
         return integerValue;
     }
 
-    public BuilderBean setIntegerValue(Integer integerValue) {
+    public int setIntegerValue(Integer integerValue) {
         this.integerValue = integerValue;
-        return this;
+        return 1;
     }
 
     public Boolean getBoolObjValue() {
         return boolObjValue;
     }
 
-    public BuilderBean setBoolObjValue(Boolean boolObjValue) {
+    public boolean setBoolObjValue(Boolean boolObjValue) {
         this.boolObjValue = boolObjValue;
-        return this;
+        return true;
     }
 
     public Float getFloatObjValue() {
         return floatObjValue;
     }
 
-    public BuilderBean setFloatObjValue(Float floatObjValue) {
+    public float setFloatObjValue(Float floatObjValue) {
         this.floatObjValue = floatObjValue;
-        return this;
+        return 1.0F;
     }
 
     public Double getDoubleObjValue() {
         return doubleObjValue;
     }
 
-    public BuilderBean setDoubleObjValue(Double doubleObjValue) {
+    public double setDoubleObjValue(Double doubleObjValue) {
         this.doubleObjValue = doubleObjValue;
-        return this;
+        return 1.0D;
     }
 
     public Long getLongObjValue() {
         return longObjValue;
     }
 
-    public BuilderBean setLongObjValue(Long longObjValue) {
+    public long setLongObjValue(Long longObjValue) {
         this.longObjValue = longObjValue;
-        return this;
+        return 1L;
     }
 
     public Short getShortObjValue() {
         return shortObjValue;
     }
 
-    public BuilderBean setShortObjValue(Short shortObjValue) {
+    public short setShortObjValue(Short shortObjValue) {
         this.shortObjValue = shortObjValue;
-        return this;
+        return (short) 1;
     }
 
     public Byte getByteObjValue() {
         return byteObjValue;
     }
 
-    public BuilderBean setByteObjValue(Byte byteObjValue) {
+    public byte setByteObjValue(Byte byteObjValue) {
         this.byteObjValue = byteObjValue;
-        return this;
+        return (byte) 1;
     }
 
     public BigInteger getBigIntegerValue() {
@@ -186,9 +186,9 @@ public class BuilderBean {
         return stringValue;
     }
 
-    public BuilderBean setStringValue(String stringValue) {
+    public long setStringValue(String stringValue) {
         this.stringValue = stringValue;
-        return this;
+        return 2L;
     }
 
     @Override
