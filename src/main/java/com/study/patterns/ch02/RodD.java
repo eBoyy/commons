@@ -1,4 +1,4 @@
-package patterns.ch02;
+package com.study.patterns.ch02;
 
 /**
  * Description: RodD

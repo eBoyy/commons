@@ -1,5 +1,6 @@
-package com.utils;
+package com.utils.beancopier;
 
+import com.utils.ZBeanCopier;
 import net.sf.cglib.core.DebuggingClassWriter;
 import org.junit.Assert;
 import org.junit.Before;

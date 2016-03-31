@@ -1,4 +1,4 @@
-package com.utils;
+package com.utils.beancopier;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

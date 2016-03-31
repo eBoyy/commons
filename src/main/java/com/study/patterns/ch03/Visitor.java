@@ -1,4 +1,4 @@
-package patterns.ch03;
+package com.study.patterns.ch03;
 
 /**
  * 访问者

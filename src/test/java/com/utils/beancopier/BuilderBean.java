@@ -1,14 +1,14 @@
-package com.utils;
+package com.utils.beancopier;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- * Description: ToBean
+ * Description: BuilderBean
  * Author: zhumengzhu
- * Create: 2015-12-04 20:57
+ * Create: 2015-12-04 20:59
  */
-public class ToBean {
+public class BuilderBean {
     private int intValue;
     private boolean boolValue;
     private float floatValue;
@@ -28,153 +28,172 @@ public class ToBean {
     private BigDecimal bigDecimalValue;
     private String stringValue;
 
+
     public int getIntValue() {
         return intValue;
     }
 
-    public void setIntValue(int intValue) {
+    public BuilderBean setIntValue(int intValue) {
         this.intValue = intValue;
+        return this;
     }
 
     public boolean isBoolValue() {
         return boolValue;
     }
 
-    public void setBoolValue(boolean boolValue) {
+    public BuilderBean setBoolValue(boolean boolValue) {
         this.boolValue = boolValue;
+        return this;
     }
 
     public float getFloatValue() {
         return floatValue;
     }
 
-    public void setFloatValue(float floatValue) {
+    public BuilderBean setFloatValue(float floatValue) {
         this.floatValue = floatValue;
+        return this;
     }
 
     public double getDoubleValue() {
         return doubleValue;
     }
 
-    public void setDoubleValue(double doubleValue) {
+    public BuilderBean setDoubleValue(double doubleValue) {
         this.doubleValue = doubleValue;
+        return this;
     }
 
     public long getLongValue() {
         return longValue;
     }
 
-    public void setLongValue(long longValue) {
+    public BuilderBean setLongValue(long longValue) {
         this.longValue = longValue;
+        return this;
     }
 
     public char getCharValue() {
         return charValue;
     }
 
-    public void setCharValue(char charValue) {
+    public BuilderBean setCharValue(char charValue) {
         this.charValue = charValue;
+        return this;
     }
 
     public byte getByteValue() {
         return byteValue;
     }
 
-    public void setByteValue(byte byteValue) {
+    public BuilderBean setByteValue(byte byteValue) {
         this.byteValue = byteValue;
+        return this;
     }
 
     public short getShortValue() {
         return shortValue;
     }
 
-    public void setShortValue(short shortValue) {
+    public BuilderBean setShortValue(short shortValue) {
         this.shortValue = shortValue;
+        return this;
     }
 
     public Integer getIntegerValue() {
         return integerValue;
     }
 
-    public void setIntegerValue(Integer integerValue) {
+    public int setIntegerValue(Integer integerValue) {
         this.integerValue = integerValue;
+        return 1;
     }
 
     public Boolean getBoolObjValue() {
         return boolObjValue;
     }
 
-    public void setBoolObjValue(Boolean boolObjValue) {
+    public boolean setBoolObjValue(Boolean boolObjValue) {
         this.boolObjValue = boolObjValue;
+        return true;
     }
 
     public Float getFloatObjValue() {
         return floatObjValue;
     }
 
-    public void setFloatObjValue(Float floatObjValue) {
+    public float setFloatObjValue(Float floatObjValue) {
         this.floatObjValue = floatObjValue;
+        return 1.0F;
     }
 
     public Double getDoubleObjValue() {
         return doubleObjValue;
     }
 
-    public void setDoubleObjValue(Double doubleObjValue) {
+    public double setDoubleObjValue(Double doubleObjValue) {
         this.doubleObjValue = doubleObjValue;
+        return 1.0D;
     }
 
     public Long getLongObjValue() {
         return longObjValue;
     }
 
-    public void setLongObjValue(Long longObjValue) {
+    public long setLongObjValue(Long longObjValue) {
         this.longObjValue = longObjValue;
+        return 1L;
     }
 
     public Short getShortObjValue() {
         return shortObjValue;
     }
 
-    public void setShortObjValue(Short shortObjValue) {
+    public short setShortObjValue(Short shortObjValue) {
         this.shortObjValue = shortObjValue;
+        return (short) 1;
     }
 
     public Byte getByteObjValue() {
         return byteObjValue;
     }
 
-    public void setByteObjValue(Byte byteObjValue) {
+    public byte setByteObjValue(Byte byteObjValue) {
         this.byteObjValue = byteObjValue;
+        return (byte) 1;
     }
 
     public BigInteger getBigIntegerValue() {
         return bigIntegerValue;
     }
 
-    public void setBigIntegerValue(BigInteger bigIntegerValue) {
+    public BuilderBean setBigIntegerValue(BigInteger bigIntegerValue) {
         this.bigIntegerValue = bigIntegerValue;
+        return this;
     }
 
     public BigDecimal getBigDecimalValue() {
         return bigDecimalValue;
     }
 
-    public void setBigDecimalValue(BigDecimal bigDecimalValue) {
+    public BuilderBean setBigDecimalValue(BigDecimal bigDecimalValue) {
         this.bigDecimalValue = bigDecimalValue;
+        return this;
     }
 
     public String getStringValue() {
         return stringValue;
     }
 
-    public void setStringValue(String stringValue) {
+    public long setStringValue(String stringValue) {
         this.stringValue = stringValue;
+        return 2L;
     }
 
     @Override
     public String toString() {
-        return "ToBean{" +
+        return "BuilderBean{" +
                 "intValue=" + intValue +
                 ", boolValue=" + boolValue +
                 ", floatValue=" + floatValue +
@@ -196,8 +215,8 @@ public class ToBean {
                 '}';
     }
 
-    public static ToBean getDefault() {
-        ToBean bean = new ToBean();
+    public static BuilderBean getDefault() {
+        BuilderBean bean = new BuilderBean();
         bean.setIntValue(1);
         bean.setBoolValue(true);
         bean.setFloatValue(1.0f);

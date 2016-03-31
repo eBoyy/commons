@@ -1,7 +1,7 @@
-package com.utils.performance;
+package com.utils.beancopier.performance;
 
 
-import com.utils.FromBean;
+import com.utils.beancopier.FromBean;
 
 /**
  * Description: Call

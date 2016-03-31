@@ -1,4 +1,4 @@
-package com.utils;
+package com.utils.beancopier;
 
 import java.io.ObjectStreamException;
 

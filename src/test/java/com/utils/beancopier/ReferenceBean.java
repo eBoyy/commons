@@ -1,88 +1,87 @@
-package com.utils;
+package com.utils.beancopier;
 
 /**
- * Description: PrimitiveBean
+ * Description: ReferenceBean
  * Author: zhumengzhu
- * Create: 2015-12-04 00:38
+ * Create: 2015-12-04 00:39
  */
-public class PrimitiveBean {
+public class ReferenceBean {
+    private Integer intValue;
+    private Boolean boolValue;
+    private Float floatValue;
+    private Double doubleValue;
+    private Long longValue;
+    private Character charValue;
+    private Byte byteValue;
+    private Short shortValue;
 
-    private int intValue = -1;
-    private boolean boolValue;
-    private float floatValue;
-    private double doubleValue;
-    private long longValue;
-    private char charValue;
-    private byte byteValue;
-    private short shortValue;
-
-    public int getIntValue() {
+    public Integer getIntValue() {
         return intValue;
     }
 
-    public void setIntValue(int intValue) {
+    public void setIntValue(Integer intValue) {
         this.intValue = intValue;
     }
 
-    public boolean isBoolValue() {
+    public Boolean getBoolValue() {
         return boolValue;
     }
 
-    public void setBoolValue(boolean boolValue) {
+    public void setBoolValue(Boolean boolValue) {
         this.boolValue = boolValue;
     }
 
-    public float getFloatValue() {
+    public Float getFloatValue() {
         return floatValue;
     }
 
-    public void setFloatValue(float floatValue) {
+    public void setFloatValue(Float floatValue) {
         this.floatValue = floatValue;
     }
 
-    public double getDoubleValue() {
+    public Double getDoubleValue() {
         return doubleValue;
     }
 
-    public void setDoubleValue(double doubleValue) {
+    public void setDoubleValue(Double doubleValue) {
         this.doubleValue = doubleValue;
     }
 
-    public long getLongValue() {
+    public Long getLongValue() {
         return longValue;
     }
 
-    public void setLongValue(long longValue) {
+    public void setLongValue(Long longValue) {
         this.longValue = longValue;
     }
 
-    public char getCharValue() {
+    public Character getCharValue() {
         return charValue;
     }
 
-    public void setCharValue(char charValue) {
+    public void setCharValue(Character charValue) {
         this.charValue = charValue;
     }
 
-    public byte getByteValue() {
+    public Byte getByteValue() {
         return byteValue;
     }
 
-    public void setByteValue(byte byteValue) {
+    public void setByteValue(Byte byteValue) {
         this.byteValue = byteValue;
     }
 
-    public short getShortValue() {
+    public Short getShortValue() {
         return shortValue;
     }
 
-    public void setShortValue(short shortValue) {
+    public void setShortValue(Short shortValue) {
         this.shortValue = shortValue;
     }
 
     @Override
     public String toString() {
-        return "PrimitiveBean{" +
+        return "ReferenceBean{" +
                 "intValue=" + intValue +
                 ", boolValue=" + boolValue +
                 ", floatValue=" + floatValue +
@@ -94,8 +93,8 @@ public class PrimitiveBean {
                 '}';
     }
 
-    public static PrimitiveBean getDefault() {
-        PrimitiveBean bean = new PrimitiveBean();
+    public static ReferenceBean getDefault() {
+        ReferenceBean bean = new ReferenceBean();
 
         bean.setIntValue(1);
         bean.setBoolValue(true);
@@ -108,5 +107,4 @@ public class PrimitiveBean {
 
         return bean;
     }
-
 }

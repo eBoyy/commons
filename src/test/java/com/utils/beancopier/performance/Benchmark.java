@@ -1,6 +1,6 @@
-package com.utils.performance;
+package com.utils.beancopier.performance;
 
-import com.utils.FromBean;
+import com.utils.beancopier.FromBean;
 import com.utils.ZBeanCopier;
 import net.sf.cglib.beans.BeanCopier;
 
